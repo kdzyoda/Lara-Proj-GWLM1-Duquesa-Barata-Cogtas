@@ -1,5 +1,8 @@
+/* ==========================================
+   PADDLER'S COFFEE HAUZ — HOME PAGE
+========================================== */
 
-/* PADDLER'S COFFEE HAUZ — HOME PAGE */
+/* HERO SECTION */
 
 .hero {
     background: #f1e7d8;
@@ -49,6 +52,7 @@
     border-radius: 6px;
     font-weight: 700;
     text-decoration: none;
+    transition: 0.2s ease;
 }
 
 .btn-primary {
@@ -56,9 +60,18 @@
     color: white;
 }
 
+.btn-primary:hover {
+    background: #876449;
+}
+
 .btn-secondary {
     border: 1px solid #39271e;
     color: #39271e;
+}
+
+.btn-secondary:hover {
+    background: #39271e;
+    color: white;
 }
 
 .hero-image img {
@@ -94,7 +107,7 @@
 
 .features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 1150px;
     margin: auto;
     gap: 24px;
@@ -116,7 +129,7 @@
     color: #766a61;
 }
 
-/* COFFEE CAROUSEL */
+/* FEATURED COFFEE CAROUSEL */
 
 .featured {
     background: #e9dccb;
@@ -124,6 +137,7 @@
 
 .coffee-carousel {
     display: flex;
+    width: 100%;
     max-width: 850px;
     margin: auto;
     align-items: center;
@@ -136,19 +150,30 @@
     min-width: 0;
     overflow: hidden;
     border-radius: 12px;
-    background: white;
+    background: #ffffff;
     text-align: center;
     padding-bottom: 25px;
 }
 
+/*
+   SQUARE IMAGE DISPLAY
+   1:1 aspect ratio (e.g. 2080 x 2080 px)
+   Displays the entire image without cropping.
+*/
+
 .carousel-content img {
+    display: block;
     width: 100%;
-    height: 350px;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    object-position: center;
+    background-color: #ffffff;
 }
 
 .carousel-content h3 {
     margin: 20px 0 8px;
+    padding: 0 15px;
     font-size: 1.6rem;
 }
 
@@ -167,6 +192,7 @@
     color: white;
     font-size: 1.3rem;
     cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 .carousel-btn:hover {
@@ -193,7 +219,16 @@
     color: #d9c9bb;
 }
 
-/* RESPONSIVE DESIGN */
+.call-to-action .btn-primary {
+    background: #d5b58f;
+    color: #39271e;
+}
+
+.call-to-action .btn-primary:hover {
+    background: white;
+}
+
+/* RESPONSIVE DESIGN — TABLET */
 
 @media (max-width: 900px) {
     .hero-container {
@@ -209,7 +244,10 @@
     }
 }
 
+/* RESPONSIVE DESIGN — MOBILE */
+
 @media (max-width: 600px) {
+
     .hero,
     .introduction,
     .featured,
@@ -226,7 +264,14 @@
     }
 
     .carousel-content img {
-        height: 220px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+    }
+
+    .carousel-content h3 {
+        font-size: 1.25rem;
     }
 
     .carousel-btn {
