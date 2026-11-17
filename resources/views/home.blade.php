@@ -3,173 +3,224 @@
 
 @section('title', "Home | Paddler's Coffee Hauz")
 
+{{-- Home Page Stylesheet --}}
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endpush
 
 @section('content')
 
-<!-- HOME PAGE: HERO SECTION -->
-<section class="hero">
-    <div class="hero-container">
+    <!-- ========================================
+         SECTION 1: HERO / WELCOME
+    ========================================= -->
+    <section class="hero" id="home">
+        <div class="hero-container">
 
-        <div class="hero-text">
+            <div class="hero-text">
+                <span class="section-label">
+                    WELCOME TO PADDLER'S COFFEE HAUZ
+                </span>
+
+                <h1>
+                    Great Coffee.<br>
+                    Better Moments.
+                </h1>
+
+                <p>
+                    Experience the perfect blend of comfort,
+                    creativity, and quality coffee at
+                    Paddler's Coffee Hauz.
+
+                    A proposed student-friendly café near
+                    Caraga State University, designed for
+                    studying, socializing, and relaxing
+                    between classes.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#featured" class="btn-primary">
+                        Explore Our Coffee
+                    </a>
+
+                    <a href="{{ route('about') }}" class="btn-secondary">
+                        Discover Our Story
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="{{ asset('images/coffee-1.jpg') }}"
+                    alt="Signature coffee featured at Paddler's Coffee Hauz"
+                    loading="eager"
+                >
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: CAFÉ INTRODUCTION
+    ========================================= -->
+    <section class="introduction" id="introduction">
+
+        <div class="section-heading">
             <span class="section-label">
-                WELCOME TO PADDLER'S COFFEE HAUZ
+                OUR COFFEE EXPERIENCE
             </span>
 
-            <h1>
-                Great Coffee.<br>
-                Better Moments.
-            </h1>
+            <h2>More Than Just Coffee</h2>
 
             <p>
-                Experience the perfect blend of comfort,
-                creativity, and coffee at Paddler's Coffee Hauz.
-                A proposed student-friendly coffee shop near
-                Caraga State University, designed for
-                studying, socializing, and relaxing.
+                Paddler's Coffee Hauz is envisioned as
+                a welcoming campus-inspired café where
+                students, faculty, and coffee enthusiasts
+                can enjoy quality beverages, recharge
+                between academic activities, and build
+                meaningful connections.
             </p>
+        </div>
 
-            <div class="hero-buttons">
-                <a href="#featured" class="btn-primary">
-                    Explore Our Coffee
-                </a>
+        <div class="features">
 
-                <a href="{{ route('about') }}" class="btn-secondary">
-                    Our Story
-                </a>
+            <article class="feature-card">
+                <h3>
+                    <span aria-hidden="true">☕</span>
+                    Quality Coffee
+                </h3>
+
+                <p>
+                    Delicious coffee beverages carefully
+                    prepared to complement every student's
+                    busy schedule.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h3>
+                    <span aria-hidden="true">📚</span>
+                    Study-Friendly Space
+                </h3>
+
+                <p>
+                    A comfortable and welcoming environment
+                    envisioned for studying, collaborating,
+                    and taking well-deserved breaks.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h3>
+                    <span aria-hidden="true">🤝</span>
+                    Campus Community
+                </h3>
+
+                <p>
+                    A place that brings Golden Paddlers
+                    together through great conversations,
+                    shared experiences, and good coffee.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 3: FEATURED COFFEE CAROUSEL
+    ========================================= -->
+    <section class="featured" id="featured">
+
+        <div class="section-heading">
+            <span class="section-label">
+                OUR PROPOSED FAVORITES
+            </span>
+
+            <h2>Featured Coffee Selection</h2>
+
+            <p>
+                Explore our proposed signature beverages,
+                inspired by the everyday campus lifestyle
+                and the coffee preferences of our community.
+            </p>
+        </div>
+
+        <div class="coffee-carousel"
+             role="region"
+             aria-label="Featured coffee selection">
+
+            <!-- Previous Slide -->
+            <button
+                type="button"
+                class="carousel-btn"
+                id="prevBtn"
+                aria-label="Previous coffee">
+                &#10094;
+            </button>
+
+            <!-- Coffee Display -->
+            <div class="carousel-content">
+
+                <img
+                    src="{{ asset('images/coffee-1.jpg') }}"
+                    alt="Signature Iced Latte"
+                    id="carouselImage"
+                    loading="lazy"
+                >
+
+                <h3 id="carouselTitle">
+                    Signature Iced Latte
+                </h3>
+
+                <p id="carouselDescription"
+                   aria-live="polite">
+                    Smooth espresso combined with
+                    creamy milk and served over ice.
+                </p>
+
             </div>
+
+            <!-- Next Slide -->
+            <button
+                type="button"
+                class="carousel-btn"
+                id="nextBtn"
+                aria-label="Next coffee">
+                &#10095;
+            </button>
+
         </div>
+    </section>
 
-        <div class="hero-image">
-            <img
-                src="{{ asset('images/coffee-1.jpg') }}"
-                alt="Paddler's Coffee Hauz signature coffee"
-            >
-        </div>
+    <!-- ========================================
+         SECTION 4: CALL TO ACTION
+    ========================================= -->
+    <section class="call-to-action" id="connect">
 
-    </div>
-</section>
-
-<!-- HOME PAGE: INTRODUCTION -->
-<section class="introduction">
-    <div class="section-heading">
-        <span class="section-label">OUR COFFEE EXPERIENCE</span>
-
-        <h2>More Than Just Coffee</h2>
+        <h2>
+            A Coffee Experience Dedicated
+            to Golden Paddlers.
+        </h2>
 
         <p>
             Paddler's Coffee Hauz is envisioned as a
-            welcoming campus-inspired café where
-            students, faculty, and coffee enthusiasts
-            can enjoy quality beverages while making
-            meaningful connections.
+            student-centered café inspired by the
+            Caraga State University community.
+
+            Discover our vision of combining quality
+            coffee, meaningful connections, and
+            a better academic lifestyle.
         </p>
-    </div>
 
-    <div class="features">
+        <a href="{{ route('contact') }}"
+           class="btn-primary">
+            Connect With Us
+        </a>
 
-        <article class="feature-card">
-            <h3>☕ Quality Coffee</h3>
-            <p>
-                Delicious coffee beverages crafted
-                for every coffee lover.
-            </p>
-        </article>
-
-        <article class="feature-card">
-            <h3>📚 Study-Friendly Space</h3>
-            <p>
-                A comfortable environment where
-                students can study and recharge.
-            </p>
-        </article>
-
-        <article class="feature-card">
-            <h3>🤝 Campus Community</h3>
-            <p>
-                A welcoming space for conversations,
-                connections, and shared experiences.
-            </p>
-        </article>
-
-    </div>
-</section>
-
-<!-- HOME PAGE: FEATURED COFFEE -->
-<section class="featured" id="featured">
-
-    <div class="section-heading">
-        <span class="section-label">OUR PROPOSED FAVORITES</span>
-
-        <h2>Featured Coffee Selection</h2>
-
-        <p>
-            Discover our proposed signature beverages,
-            inspired by the everyday campus lifestyle.
-        </p>
-    </div>
-
-    <div class="coffee-carousel">
-
-        <button
-            type="button"
-            class="carousel-btn"
-            id="prevBtn"
-            aria-label="Previous coffee">
-            &#10094;
-        </button>
-
-        <div class="carousel-content">
-
-            <img
-                src="{{ asset('images/coffee-1.jpg') }}"
-                alt="Signature Iced Latte"
-                id="carouselImage"
-            >
-
-            <h3 id="carouselTitle">
-                Signature Iced Latte
-            </h3>
-
-            <p id="carouselDescription">
-                Smooth espresso combined with creamy milk
-                and served over ice.
-            </p>
-
-        </div>
-
-        <button
-            type="button"
-            class="carousel-btn"
-            id="nextBtn"
-            aria-label="Next coffee">
-            &#10095;
-        </button>
-
-    </div>
-
-</section>
-
-<!-- HOME PAGE: CALL TO ACTION -->
-<section class="call-to-action">
-
-    <h2>CSU's first very student-dedicated café. Golden Paddlers dedicated to your coffee experience.</h2>
-
-    <p>
-        Discover the vision behind Paddler's Coffee Hauz
-        and connect with our growing café, level-up your coffee plus academic experience.
-    </p>
-
-    <a href="{{ route('contact') }}" class="btn-primary">
-        Contact Us
-    </a>
-
-</section>
+    </section>
 
 @endsection
 
+{{-- Home Page JavaScript --}}
 @push('scripts')
-<script src="{{ asset('js/home.js') }}" defer></script>
+    <script src="{{ asset('js/home.js') }}" defer></script>
 @endpush
