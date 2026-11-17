@@ -50,7 +50,7 @@
 
             <div class="hero-image">
                 <img
-                    src="{{ asset('images/coffee-1.jpg') }}"
+                    src="{{ asset('images/ICEDLATTE.png') }}"
                     alt="Signature coffee featured at Paddler's Coffee Hauz"
                     loading="eager"
                 >
@@ -161,7 +161,7 @@
             <div class="carousel-content">
 
                 <img
-                    src="{{ asset('images/coffee-1.jpg') }}"
+                    src="{{ asset('images/ICEDLATTE.png') }}"
                     alt="Signature Iced Latte"
                     id="carouselImage"
                     loading="lazy"
