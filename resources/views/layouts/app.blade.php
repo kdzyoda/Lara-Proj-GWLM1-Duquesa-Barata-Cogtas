@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +14,15 @@
 <body>
 
     <!-- NAVIGATION -->
-    <header>
-        <nav>
+    <header class="site-header">
+        <nav class="navbar">
             <h2>Paddler's Coffee Hauz</h2>
 
-            <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('about') }}">About</a>
-            <a href="{{ route('contact') }}">Contact</a>
+            <div class="nav-links">
+                <a href="{{ route('home') }}">Home</a>
+                <a href="{{ route('about') }}">About</a>
+                <a href="{{ route('contact') }}">Contact</a>
+            </div>
         </nav>
     </header>
 
@@ -29,9 +32,13 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <p>© {{ date('Y') }} Paddler's Coffee Hauz</p>
-        <p>Group Project for IT 110 - GWLM1. Developed by Khizha Duquesa, Eleanore Barata, and Demart Cogtas</p>
+    <footer class="site-footer">
+        <p>&copy; {{ date('Y') }} Paddler's Coffee Hauz.</p>
+        <p>
+            Laravel Group Project for IT 110 - GWLM1.
+            Developed by Member 1 Khizha Duquesa,
+            Member 2 Eleanore Barata, and Member 3 Demart Cogtas.
+        </p>
     </footer>
 
     @stack('scripts')
