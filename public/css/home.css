@@ -1,17 +1,22 @@
 /* =====================================================
    PADDLER'S COFFEE HAUZ
-   HOME PAGE — FINAL TYPOGRAPHY & UI STYLING
+   HOME PAGE — FINAL UI/UX STYLESHEET
 
-   Theme: Cozy Anime-Inspired Campus Café
-   Heading: Fredoka
-   Body: Nunito
+   Theme: Cozy Anime-Inspired Campus Cafe
+   Heading Font: Fredoka (Bold)
+   Body Font: Nunito
 
-   Fonts inherited from layout.css
+   Layout:
+   - Left: Cafe Logo
+   - Center: Hero Text
+   - Right: Coffee Illustration
+
+   Fonts loaded through layout.css
 ===================================================== */
 
 
 /* =====================================================
-   1. HOME PAGE TYPOGRAPHY
+   1. TYPOGRAPHY SYSTEM
 ===================================================== */
 
 .hero h1,
@@ -21,13 +26,8 @@
 .call-to-action h2 {
     font-family: var(--font-heading, 'Fredoka', sans-serif);
     font-weight: 600;
-    letter-spacing: -0.02em;
     line-height: 1.2;
-}
-
-.hero h1 {
-    font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
 }
 
 .hero-text p,
@@ -55,92 +55,136 @@
    2. HERO SECTION
 ===================================================== */
 
-/* =====================================================
-   HERO SECTION
-===================================================== */
-
 .hero {
     background: #f1e7d8;
-    padding: 80px 6%;
+    padding: 80px 5%;
 }
 
 .hero-container {
-    max-width: 1400px;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 0.9fr 1.2fr 1fr;
-    gap: 40px;
+
+    grid-template-columns:
+        minmax(0, 0.75fr) minmax(0, 1.5fr) minmax(0, 0.85fr);
+
+    gap: 24px;
     align-items: center;
 }
 
+/* LEFT — CAFE LOGO */
+
 .hero-logo {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    min-width: 0;
 }
 
 .hero-logo img {
     display: block;
     width: 100%;
-    max-width: 320px;
+    max-width: 310px;
     height: auto;
     object-fit: contain;
+    object-position: center;
 }
+
+/* CENTER — HERO TEXT */
 
 .hero-text {
     min-width: 0;
 }
 
-.hero h1 {
-    font-family: var(--font-heading, 'Fredoka', sans-serif);
-    font-size: clamp(2.8rem, 5vw, 5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
+/*
+   BOLD FREDOKA HERO TITLE
+
+   Desired appearance:
+   Great Coffee.
+   Better Moments.
+
+   Maintains the thick, rounded typography
+   from the original design.
+*/
+
+.hero h1.hero-title {
     margin: 20px 0 24px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(2.2rem, 3.1vw, 3.6rem);
+    font-weight: 700;
+
+    font-variation-settings: "wght" 700;
+    font-synthesis: none;
+
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+
     color: #39271e;
 }
+
+.hero h1.hero-title span {
+    display: block;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+/* Desktop: each phrase stays on one line */
+
+@media (min-width: 1201px) {
+    .hero h1.hero-title span {
+        white-space: nowrap;
+    }
+}
+
+/* HERO DESCRIPTION */
 
 .hero-text p {
     max-width: 550px;
     margin: 0;
+
     font-family: var(--font-body, 'Nunito', sans-serif);
-    font-size: 1.05rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+
     color: #66574d;
-    line-height: 1.9;
 }
 
-.section-label {
-    display: inline-block;
-    font-family: var(--font-body, 'Nunito', sans-serif);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #a47442;
-}
+/* HERO BUTTONS */
 
 .hero-buttons {
     display: flex;
     align-items: center;
-    gap: 15px;
     flex-wrap: wrap;
+
+    gap: 14px;
     margin-top: 30px;
 }
 
 .btn-primary,
 .btn-secondary {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    padding: 14px 25px;
+    justify-content: center;
+
+    padding: 13px 23px;
     border-radius: 10px;
+
     font-family: var(--font-body, 'Nunito', sans-serif);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
+    line-height: 1.4;
+
+    text-align: center;
     text-decoration: none;
-    transition: 0.2s ease;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .btn-primary {
@@ -154,8 +198,8 @@
 }
 
 .btn-secondary {
-    border: 1px solid #39271e;
     background: transparent;
+    border: 1px solid #39271e;
     color: #39271e;
 }
 
@@ -165,18 +209,23 @@
     transform: translateY(-2px);
 }
 
+/* RIGHT — COFFEE IMAGE */
+
 .hero-image {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    min-width: 0;
 }
 
-.hero-image img {
+.hero-image>img {
     display: block;
     width: 100%;
-    max-width: 420px;
+    max-width: 390px;
     height: auto;
+
     object-fit: contain;
+    object-position: center;
 }
 
 
@@ -186,36 +235,42 @@
 
 .introduction,
 .featured {
-    padding: 85px 6%;
+    padding: 80px 5%;
 }
 
 .section-heading {
+    width: 100%;
     max-width: 700px;
-    margin: 0 auto 45px;
+    margin: 0 auto 42px;
     text-align: center;
 }
 
 .section-heading h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
     margin: 15px 0 18px;
+
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .section-heading p {
     margin: 0;
     color: #766a61;
     font-size: 1rem;
+    line-height: 1.8;
 }
+
+/* FEATURE CARDS */
 
 .features {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
 
     max-width: 1150px;
     margin: 0 auto;
+    gap: 24px;
 }
-
-/* Cozy, rounded cards */
 
 .feature-card {
     padding: 35px 25px;
@@ -225,6 +280,7 @@
     border-radius: 16px;
 
     text-align: center;
+
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
@@ -236,19 +292,30 @@
 }
 
 .feature-card h3 {
-    font-size: 1.4rem;
     margin: 0 0 14px;
+
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
 }
 
 .feature-card p {
     margin: 0;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
     color: #766a61;
+
     font-size: 0.95rem;
+    line-height: 1.75;
 }
 
 
 /* =====================================================
    4. FEATURED COFFEE CAROUSEL
+
+   Width: 680px maximum
+   Image Ratio: 1:1
+   Image Fit: Contain
 ===================================================== */
 
 .featured {
@@ -261,17 +328,21 @@
     justify-content: center;
 
     width: 100%;
-    max-width: 850px;
+    max-width: 680px;
+
     margin: 0 auto;
-    gap: 20px;
+    gap: 16px;
 }
 
-.carousel-content {
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
+/* COFFEE DISPLAY CARD */
 
-    padding-bottom: 25px;
+.carousel-content {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    overflow: hidden;
+    padding-bottom: 22px;
+
     background: #ffffff;
     border-radius: 16px;
 
@@ -279,48 +350,55 @@
     box-shadow: 0 8px 24px rgba(57, 39, 30, 0.06);
 }
 
-/*
-   Square Coffee Images
-   Display ratio: 1:1 (example 2080 x 2080)
-   Entire image remains visible without cropping.
-*/
+/* SQUARE IMAGES — NO CROPPING */
 
 .carousel-content img {
     display: block;
+
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
 
     object-fit: contain;
     object-position: center;
+
     background: #ffffff;
 }
 
+/* COFFEE TITLE */
+
 .carousel-content h3 {
-    margin: 20px 0 8px;
+    margin: 18px 0 8px;
     padding: 0 15px;
 
-    font-size: 1.6rem;
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: 1.4rem;
     font-weight: 600;
+    line-height: 1.25;
 }
+
+/* COFFEE DESCRIPTION */
 
 .carousel-content p {
     margin: 0;
     padding: 0 20px;
 
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 0.9rem;
+    line-height: 1.75;
+
     color: #766a61;
-    font-size: 0.95rem;
 }
 
-/* Carousel navigation */
+/* CAROUSEL BUTTONS */
 
 .carousel-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
 
     padding: 0;
@@ -331,10 +409,11 @@
     color: #ffffff;
 
     font-family: var(--font-body, 'Nunito', sans-serif);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
 
     cursor: pointer;
+
     transition:
         background-color 0.2s ease,
         transform 0.2s ease;
@@ -342,7 +421,12 @@
 
 .carousel-btn:hover {
     background: #876449;
-    transform: scale(1.06);
+    transform: scale(1.05);
+}
+
+.carousel-btn:focus-visible {
+    outline: 3px solid #a47442;
+    outline-offset: 3px;
 }
 
 
@@ -352,8 +436,10 @@
 
 .call-to-action {
     padding: 85px 6%;
+
     background: #39271e;
     color: #ffffff;
+
     text-align: center;
 }
 
@@ -361,17 +447,21 @@
     max-width: 850px;
     margin: 0 auto 20px;
 
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
+    line-height: 1.2;
 }
 
 .call-to-action p {
     max-width: 620px;
     margin: 0 auto 25px;
 
-    color: #d9c9bb;
+    font-family: var(--font-body, 'Nunito', sans-serif);
     font-size: 1rem;
     line-height: 1.85;
+
+    color: #d9c9bb;
 }
 
 .call-to-action .btn-primary {
@@ -386,27 +476,103 @@
 
 
 /* =====================================================
-   6. RESPONSIVE — TABLET
+   6. SMALL DESKTOP RESPONSIVENESS
 ===================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .hero-container {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 1.4fr);
+
         gap: 35px;
     }
 
-    .features {
-        grid-template-columns: 1fr;
+    .hero-logo {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .hero-text {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .hero-image {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .hero h1.hero-title {
+        font-size: clamp(2.2rem, 4vw, 3.4rem);
+    }
+
+    .hero-logo img {
+        max-width: 280px;
     }
 
     .hero-image>img {
-        height: 350px;
+        max-width: 340px;
     }
 }
 
 
 /* =====================================================
-   7. RESPONSIVE — MOBILE
+   7. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 900px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-logo,
+    .hero-text,
+    .hero-image {
+        grid-column: 1;
+    }
+
+    .hero-logo {
+        grid-row: 1;
+    }
+
+    .hero-text {
+        grid-row: 2;
+    }
+
+    .hero-image {
+        grid-row: 3;
+    }
+
+    .hero-logo img {
+        max-width: 250px;
+    }
+
+    .hero h1.hero-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .hero-text p {
+        margin: 0 auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image>img {
+        max-width: 320px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   8. MOBILE RESPONSIVENESS
 ===================================================== */
 
 @media (max-width: 600px) {
@@ -418,21 +584,37 @@
         padding: 55px 5%;
     }
 
-    .hero h1 {
-        font-size: clamp(2.2rem, 9vw, 3.1rem);
+    .hero-container {
+        gap: 25px;
+    }
+
+    .hero-logo img {
+        max-width: 190px;
+    }
+
+    .hero h1.hero-title {
+        font-size: clamp(1.9rem, 7.5vw, 3rem);
+        line-height: 1.18;
+    }
+
+    /* Allow natural wrapping on small screens */
+    .hero h1.hero-title span {
+        white-space: normal;
     }
 
     .hero-text p {
+        max-width: 100%;
         font-size: 0.95rem;
         line-height: 1.8;
     }
 
     .hero-buttons {
+        justify-content: center;
         gap: 12px;
     }
 
     .hero-image>img {
-        height: 260px;
+        max-width: 240px;
     }
 
     .section-heading h2 {
@@ -451,6 +633,10 @@
         gap: 8px;
     }
 
+    .carousel-content {
+        padding-bottom: 18px;
+    }
+
     .carousel-content img {
         width: 100%;
         height: auto;
@@ -459,20 +645,48 @@
     }
 
     .carousel-content h3 {
-        font-size: 1.25rem;
+        margin-top: 14px;
+        font-size: 1.2rem;
     }
 
     .carousel-content p {
-        font-size: 0.875rem;
+        font-size: 0.85rem;
+        padding: 0 12px;
     }
 
     .carousel-btn {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
         font-size: 1rem;
     }
 
     .call-to-action h2 {
         font-size: clamp(1.8rem, 7vw, 2.4rem);
+    }
+
+    .call-to-action p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =====================================================
+   9. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .feature-card,
+    .btn-primary,
+    .btn-secondary,
+    .carousel-btn {
+        transition: none;
+    }
+
+    .feature-card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .carousel-btn:hover {
+        transform: none;
     }
 }
