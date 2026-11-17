@@ -1,78 +1,433 @@
 
+/* =====================================================
+   PADDLER'S COFFEE HAUZ
+   GLOBAL DESIGN SYSTEM — FINAL VERSION
+
+   Theme: Cozy Anime-Inspired Campus Café
+   Heading Font: Fredoka
+   Body Font: Nunito
+
+   Shared by Members 1, 2, and 3
+===================================================== */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+/* =====================================================
+   1. DESIGN TOKENS
+===================================================== */
+
 :root {
+    /* Existing color palette */
     --espresso: #39271e;
     --mocha: #876449;
     --caramel: #d5b58f;
     --cream: #f7f2e9;
+    --white: #ffffff;
+
+    /* Supporting colors */
+    --coffee-muted: #766a61;
+    --coffee-border: #e4d6c5;
+    --coffee-surface: #fffaf4;
+
+    /* Fixed typography */
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+
+    /* Typography scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+
+    /* UI styling */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-pill: 999px;
+
+    --shadow-soft: 0 8px 24px rgba(57, 39, 30, 0.08);
+
+    --transition: 0.2s ease;
 }
 
-* {
+/* =====================================================
+   2. GLOBAL RESET
+===================================================== */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    background: var(--cream);
+    min-height: 100vh;
+
+    background-color: var(--cream);
     color: var(--espresso);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-.site-header {
-    background: var(--espresso);
-    color: white;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 18px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.navbar h2 {
-    margin: 0;
-    font-size: 1.4rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: white;
+a {
+    color: inherit;
     text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =====================================================
+   3. GLOBAL TYPOGRAPHY
+===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
     font-weight: 600;
 }
 
-.nav-links a:hover {
+h3 {
+    font-weight: 600;
+}
+
+p,
+li,
+label,
+small,
+span {
+    font-family: var(--font-body);
+}
+
+p {
+    line-height: 1.8;
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+/* Buttons and interactive text */
+.btn,
+.btn-primary,
+.btn-secondary,
+button {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+/* Readable keyboard focus */
+:focus-visible {
+    outline: 3px solid var(--caramel);
+    outline-offset: 3px;
+}
+
+/* =====================================================
+   4. SHARED NAVIGATION
+===================================================== */
+
+.site-header {
+    position: relative;
+    z-index: 100;
+
+    background-color: var(--espresso);
+    color: var(--white);
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* Logo + Café Name */
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+
+    transition: opacity var(--transition);
+}
+
+.navbar-brand:hover {
+    opacity: 0.9;
+}
+
+.navbar-brand span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.navbar-logo {
+    display: block;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Navigation Links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 2px;
+
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    transition: color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
     color: var(--caramel);
 }
 
+/* Subtle underline indicator */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--caramel);
+    border-radius: var(--radius-pill);
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after,
+.nav-links a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+/* =====================================================
+   5. SHARED PAGE CONTENT
+===================================================== */
+
+main {
+    min-height: 50vh;
+}
+
+/* =====================================================
+   6. SHARED FOOTER
+===================================================== */
+
 .site-footer {
-    padding: 30px 5%;
+    padding: 38px 6%;
+
     background: var(--espresso);
-    color: white;
+    color: var(--white);
     text-align: center;
 }
 
 .site-footer p {
-    margin: 5px 0;
+    max-width: 950px;
+    margin: 7px auto;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.75;
 }
+
+.site-footer p:first-child {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.site-footer p:last-child {
+    color: var(--caramel);
+    font-size: 0.82rem;
+}
+
+/* =====================================================
+   7. SHARED UI COMPONENTS
+===================================================== */
+
+/* Unified button interaction */
+
+.btn-primary,
+.btn-secondary {
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+/* Shared input styling for future Contact page */
+
+input,
+textarea,
+select {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline-color: var(--caramel);
+}
+
+/* =====================================================
+   8. RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 16px 5%;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+/* =====================================================
+   9. RESPONSIVE — MOBILE
+===================================================== */
 
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+        padding: 18px 5%;
         text-align: center;
     }
 
-    .nav-links {
+    .navbar-brand {
         justify-content: center;
-        flex-wrap: wrap;
+        font-size: 1.15rem;
+        gap: 10px;
+    }
+
+    .navbar-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .site-footer {
+        padding: 32px 6%;
+    }
+
+    .site-footer p {
+        font-size: 0.82rem;
+    }
+}
+
+/* =====================================================
+   10. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }
