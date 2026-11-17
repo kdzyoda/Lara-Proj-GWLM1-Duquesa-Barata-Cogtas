@@ -16,6 +16,16 @@
     <section class="hero" id="home">
         <div class="hero-container">
 
+            <!-- LEFT SIDE: BIG LOGO -->
+            <div class="hero-logo">
+                <img
+                    src="{{ asset('images/paddlerscoffeehauz.png') }}"
+                    alt="Paddler's Coffee Hauz Logo"
+                    loading="eager"
+                >
+            </div>
+
+            <!-- CENTER: HERO TEXT -->
             <div class="hero-text">
                 <span class="section-label">
                     WELCOME TO PADDLER'S COFFEE HAUZ
@@ -29,12 +39,9 @@
                 <p>
                     Experience the perfect blend of comfort,
                     creativity, and quality coffee at
-                    Paddler's Coffee Hauz.
-
-                    A proposed student-friendly café near
-                    Caraga State University, designed for
-                    studying, socializing, and relaxing
-                    between classes.
+                    Paddler's Coffee Hauz. A proposed student-friendly
+                café near Caraga State University, designed for
+                    studying, socializing, and relaxing between classes.
                 </p>
 
                 <div class="hero-buttons">
@@ -48,10 +55,11 @@
                 </div>
             </div>
 
+            <!-- RIGHT SIDE: HERO IMAGE -->
             <div class="hero-image">
                 <img
                     src="{{ asset('images/ICEDLATTE.png') }}"
-                    alt="Signature coffee featured at Paddler's Coffee Hauz"
+                    alt="Signature Iced Latte at Paddler's Coffee Hauz"
                     loading="eager"
                 >
             </div>
@@ -175,6 +183,7 @@
                    aria-live="polite">
                     Smooth espresso combined with
                     creamy milk and served over ice.
+                    CSUans students top-tier coffee, a best seller indeed!
                 </p>
 
             </div>
