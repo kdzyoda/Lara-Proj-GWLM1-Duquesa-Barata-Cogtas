@@ -31,9 +31,9 @@
                     WELCOME TO PADDLER'S COFFEE HAUZ
                 </span>
 
-                <h1>
-                    Great Coffee.<br>
-                    Better Moments.
+                <h1 class="hero-title">
+                    <span>Great Coffee.</span>
+                    <span>Better Moments.</span>
                 </h1>
 
                 <p>
