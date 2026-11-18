@@ -9,9 +9,8 @@
 
 @section('content')
 @php
-    // Team data: edit names, roles, and bios here
     $team = [
-        ['name' => 'Khizha Duquesa', 'role' => 'Founder and Head Barista', 'bio' => 'Sets the menu and tastes every new roast first.'],
+        ['name' => 'Khizha Duquesa', 'role' => 'Founder and Head Barista', 'bio' => 'Sets the menu and tastes every new roast before it reaches your cup.'],
         ['name' => 'Eleanore Barata', 'role' => 'Store Manager', 'bio' => 'Keeps the cafe running smoothly from open to close.'],
         ['name' => 'Demart Cogtas', 'role' => 'Pastry and Kitchen Lead', 'bio' => 'Bakes the pairings that go with every cup.'],
     ];
@@ -38,11 +37,10 @@
 
             <div class="about-story__body">
                 <p class="about-description">
-                    Paddler's Coffee Hauz started with a simple idea: a good cup of coffee should feel
-                    like a pause, not a pit stop. We want to give students, teachers, and staff a warm
-                    place to study, talk, and unwind between classes.
-                </p>
-
+                Paddler's Coffee Hauz started with a simple idea: a good cup of coffee should feel
+                like a pause, not a pit stop. We want to give students, teachers, and staff a warm
+                place to study, talk, and unwind between classes.
+</p>
                 <div class="about-story__more" id="storyMore">
                     <div class="about-story__more-inner">
                         <p class="about-description">
