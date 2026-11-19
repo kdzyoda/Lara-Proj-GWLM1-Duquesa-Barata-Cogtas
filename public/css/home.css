@@ -1,0 +1,692 @@
+/* =====================================================
+   PADDLER'S COFFEE HAUZ
+   HOME PAGE — FINAL UI/UX STYLESHEET
+
+   Theme: Cozy Anime-Inspired Campus Cafe
+   Heading Font: Fredoka (Bold)
+   Body Font: Nunito
+
+   Layout:
+   - Left: Cafe Logo
+   - Center: Hero Text
+   - Right: Coffee Illustration
+
+   Fonts loaded through layout.css
+===================================================== */
+
+
+/* =====================================================
+   1. TYPOGRAPHY SYSTEM
+===================================================== */
+
+.hero h1,
+.section-heading h2,
+.feature-card h3,
+.carousel-content h3,
+.call-to-action h2 {
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.hero-text p,
+.section-heading p,
+.feature-card p,
+.carousel-content p,
+.call-to-action p {
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.section-label {
+    display: inline-block;
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #a47442;
+}
+
+
+/* =====================================================
+   2. HERO SECTION
+===================================================== */
+
+.hero {
+    background: #f1e7d8;
+    padding: 80px 5%;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.75fr) minmax(0, 1.5fr) minmax(0, 0.85fr);
+
+    gap: 24px;
+    align-items: center;
+}
+
+/* LEFT — CAFE LOGO */
+
+.hero-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.hero-logo img {
+    display: block;
+    width: 100%;
+    max-width: 310px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* CENTER — HERO TEXT */
+
+.hero-text {
+    min-width: 0;
+}
+
+/*
+   BOLD FREDOKA HERO TITLE
+
+   Desired appearance:
+   Great Coffee.
+   Better Moments.
+
+   Maintains the thick, rounded typography
+   from the original design.
+*/
+
+.hero h1.hero-title {
+    margin: 20px 0 24px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(2.2rem, 3.1vw, 3.6rem);
+    font-weight: 700;
+
+    font-variation-settings: "wght" 700;
+    font-synthesis: none;
+
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+
+    color: #39271e;
+}
+
+.hero h1.hero-title span {
+    display: block;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+/* Desktop: each phrase stays on one line */
+
+@media (min-width: 1201px) {
+    .hero h1.hero-title span {
+        white-space: nowrap;
+    }
+}
+
+/* HERO DESCRIPTION */
+
+.hero-text p {
+    max-width: 550px;
+    margin: 0;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+
+    color: #66574d;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 23px;
+    border-radius: 10px;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.4;
+
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-primary {
+    background: #39271e;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #876449;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #39271e;
+    color: #39271e;
+}
+
+.btn-secondary:hover {
+    background: #39271e;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* RIGHT — COFFEE IMAGE */
+
+.hero-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.hero-image>img {
+    display: block;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* =====================================================
+   3. INTRODUCTION SECTION
+===================================================== */
+
+.introduction,
+.featured {
+    padding: 80px 5%;
+}
+
+.section-heading {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 15px 0 18px;
+
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #766a61;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* FEATURE CARDS */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    max-width: 1150px;
+    margin: 0 auto;
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 35px 25px;
+
+    background: #ffffff;
+    border: 1px solid #e4d6c5;
+    border-radius: 16px;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(57, 39, 30, 0.08);
+}
+
+.feature-card h3 {
+    margin: 0 0 14px;
+
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.feature-card p {
+    margin: 0;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    color: #766a61;
+
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   4. FEATURED COFFEE CAROUSEL
+
+   Width: 680px maximum
+   Image Ratio: 1:1
+   Image Fit: Contain
+===================================================== */
+
+.featured {
+    background: #e9dccb;
+}
+
+.coffee-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 680px;
+
+    margin: 0 auto;
+    gap: 16px;
+}
+
+/* COFFEE DISPLAY CARD */
+
+.carousel-content {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    overflow: hidden;
+    padding-bottom: 22px;
+
+    background: #ffffff;
+    border-radius: 16px;
+
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(57, 39, 30, 0.06);
+}
+
+/* SQUARE IMAGES — NO CROPPING */
+
+.carousel-content img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #ffffff;
+}
+
+/* COFFEE TITLE */
+
+.carousel-content h3 {
+    margin: 18px 0 8px;
+    padding: 0 15px;
+
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+/* COFFEE DESCRIPTION */
+
+.carousel-content p {
+    margin: 0;
+    padding: 0 20px;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 0.9rem;
+    line-height: 1.75;
+
+    color: #766a61;
+}
+
+/* CAROUSEL BUTTONS */
+
+.carousel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: #39271e;
+    color: #ffffff;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: #876449;
+    transform: scale(1.05);
+}
+
+.carousel-btn:focus-visible {
+    outline: 3px solid #a47442;
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   5. CALL TO ACTION
+===================================================== */
+
+.call-to-action {
+    padding: 85px 6%;
+
+    background: #39271e;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.call-to-action h2 {
+    max-width: 850px;
+    margin: 0 auto 20px;
+
+    font-family: var(--font-heading, 'Fredoka', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.call-to-action p {
+    max-width: 620px;
+    margin: 0 auto 25px;
+
+    font-family: var(--font-body, 'Nunito', sans-serif);
+    font-size: 1rem;
+    line-height: 1.85;
+
+    color: #d9c9bb;
+}
+
+.call-to-action .btn-primary {
+    background: #d5b58f;
+    color: #39271e;
+}
+
+.call-to-action .btn-primary:hover {
+    background: #ffffff;
+    color: #39271e;
+}
+
+
+/* =====================================================
+   6. SMALL DESKTOP RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 1200px) {
+    .hero-container {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 1.4fr);
+
+        gap: 35px;
+    }
+
+    .hero-logo {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .hero-text {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .hero-image {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .hero h1.hero-title {
+        font-size: clamp(2.2rem, 4vw, 3.4rem);
+    }
+
+    .hero-logo img {
+        max-width: 280px;
+    }
+
+    .hero-image>img {
+        max-width: 340px;
+    }
+}
+
+
+/* =====================================================
+   7. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 900px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-logo,
+    .hero-text,
+    .hero-image {
+        grid-column: 1;
+    }
+
+    .hero-logo {
+        grid-row: 1;
+    }
+
+    .hero-text {
+        grid-row: 2;
+    }
+
+    .hero-image {
+        grid-row: 3;
+    }
+
+    .hero-logo img {
+        max-width: 250px;
+    }
+
+    .hero h1.hero-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .hero-text p {
+        margin: 0 auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image>img {
+        max-width: 320px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   8. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .hero,
+    .introduction,
+    .featured,
+    .call-to-action {
+        padding: 55px 5%;
+    }
+
+    .hero-container {
+        gap: 25px;
+    }
+
+    .hero-logo img {
+        max-width: 190px;
+    }
+
+    .hero h1.hero-title {
+        font-size: clamp(1.9rem, 7.5vw, 3rem);
+        line-height: 1.18;
+    }
+
+    /* Allow natural wrapping on small screens */
+    .hero h1.hero-title span {
+        white-space: normal;
+    }
+
+    .hero-text p {
+        max-width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-image>img {
+        max-width: 240px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+    }
+
+    .section-heading p {
+        font-size: 0.95rem;
+    }
+
+    .feature-card {
+        padding: 28px 22px;
+    }
+
+    .coffee-carousel {
+        gap: 8px;
+    }
+
+    .carousel-content {
+        padding-bottom: 18px;
+    }
+
+    .carousel-content img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+    }
+
+    .carousel-content h3 {
+        margin-top: 14px;
+        font-size: 1.2rem;
+    }
+
+    .carousel-content p {
+        font-size: 0.85rem;
+        padding: 0 12px;
+    }
+
+    .carousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .call-to-action h2 {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+    }
+
+    .call-to-action p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =====================================================
+   9. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .feature-card,
+    .btn-primary,
+    .btn-secondary,
+    .carousel-btn {
+        transition: none;
+    }
+
+    .feature-card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .carousel-btn:hover {
+        transform: none;
+    }
+}
